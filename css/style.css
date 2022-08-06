@@ -54,3 +54,87 @@ body {
 .logo {
   height: 35px;
 }
+
+.text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  /* background-color: rebeccapurple; */
+  transform: translate(
+    -50%,
+    -50%
+  ); /* To center the text-box element relative to the header container */
+}
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  backface-visibility: hidden; /* Always use this to hide animation shaky effect */
+}
+
+.heading-primary-main {
+  display: block;
+  /* Since span elems are inline by default, 
+  we will change them to block in order for each to take a full line length  */
+
+  font-size: 60px;
+  font-weight: 700;
+  letter-spacing: 35px;
+
+  animation-name: moveInLeft;
+  animation-duration: 3s;
+
+  /* 
+  other possible props:
+  animation-iteration-count: 3;
+  animation-delay: 3s;
+  animation-timing-function: ease-out;
+   */
+}
+
+.heading-primary-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
+
+  animation: moveInRight 3s;
+  /* animation: moveInRight;
+  animation-duration: 3s; */
+}
+
+/* Animations */
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(
+      -100px
+    ); /* negative value means it will start from the left side */
+  }
+
+  80% {
+    transform: translateX(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  80% {
+    transform: translateX(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
