@@ -69,6 +69,7 @@ body {
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
+
   backface-visibility: hidden; /* Always use this to hide animation shaky effect */
 }
 
@@ -104,6 +105,8 @@ body {
 }
 
 /* Animations */
+/* The animation can be used anywhere after it is defined
+ */
 
 @keyframes moveInLeft {
   0% {
