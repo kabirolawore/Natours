@@ -64,6 +64,8 @@ body {
     -50%,
     -50%
   ); /* To center the text-box element relative to the header container */
+
+  text-align: center;
 }
 
 .heading-primary {
@@ -71,6 +73,7 @@ body {
   text-transform: uppercase;
 
   backface-visibility: hidden; /* Always use this to hide animation shaky effect */
+  margin-bottom: 60px;
 }
 
 .heading-primary-main {
@@ -104,7 +107,7 @@ body {
   animation-duration: 3s; */
 }
 
-/* Animations */
+/* Animations using keyframes and transform property*/
 /* The animation can be used anywhere after it is defined
  */
 
@@ -113,7 +116,7 @@ body {
     opacity: 0;
     transform: translateX(
       -100px
-    ); /* negative value means it will start from the left side */
+    ); /* negative value means it will start from the left side to the right*/
   }
 
   80% {
@@ -140,4 +143,32 @@ body {
     opacity: 1;
     transform: translateX(0);
   }
+}
+/* Heading button */
+
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  border-radius: 100px;
+  display: inline-block;
+  transition: all 0.2s; /* should be on the intital state */
+}
+
+.btn:hover {
+  transform: translateY(
+    -3px
+  ); /* negative value means it will start from the down to the up direction*/
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(-1px); /* active state is when the button is clicked */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
 }
