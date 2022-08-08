@@ -11,19 +11,27 @@ Dark green: #28b485
 2. How to set project-wide font definitions
 3. How to clip parts of elements using clip-path*/
 
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: inherit; /* Good practise */
+}
+
+html {
+  font-size: 62.5%; /* Good practise */
 }
 
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1.6rem;
   line-height: 1.7;
   color: #777;
-  padding: 30px;
+  padding: 3rem;
+
+  box-sizing: border-box; /* Good practise */
 }
 
 .header {
@@ -48,11 +56,11 @@ body {
 
 .logo-box {
   position: absolute;
-  top: 40px;
-  left: 40px;
+  top: 4rem;
+  left: 4rem;
 }
 .logo {
-  height: 35px;
+  height: 3.5rem;
 }
 
 .text-box {
@@ -73,7 +81,7 @@ body {
   text-transform: uppercase;
 
   backface-visibility: hidden; /* Always use this to hide animation shaky effect */
-  margin-bottom: 60px;
+  margin-bottom: 6rem;
 }
 
 .heading-primary-main {
@@ -81,12 +89,11 @@ body {
   /* Since span elems are inline by default, 
   we will change them to block in order for each to take a full line length  */
 
-  font-size: 60px;
+  font-size: 6rem;
   font-weight: 700;
-  letter-spacing: 35px;
+  letter-spacing: 3.5rem;
 
-  animation-name: moveInLeft;
-  animation-duration: 3s;
+  animation: moveInLeft 3s;
 
   /* 
   other possible props:
@@ -98,9 +105,9 @@ body {
 
 .heading-primary-sub {
   display: block;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 17.4px;
+  letter-spacing: 1.75rem;
 
   animation: moveInRight 3s;
   /* animation: moveInRight;
@@ -115,12 +122,12 @@ body {
   0% {
     opacity: 0;
     transform: translateX(
-      -100px
+      -10rem
     ); /* negative value means it will start from the left side to the right*/
   }
 
   80% {
-    transform: translateX(10px);
+    transform: translateX(1rem);
   }
 
   100% {
@@ -132,11 +139,11 @@ body {
 @keyframes moveInRight {
   0% {
     opacity: 0;
-    transform: translateX(100px);
+    transform: translateX(10rem);
   }
 
   80% {
-    transform: translateX(-10px);
+    transform: translateX(-1rem);
   }
 
   100% {
@@ -144,31 +151,68 @@ body {
     transform: translateX(0);
   }
 }
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Heading button */
 
 .btn:link,
 .btn:visited {
+  display: inline-block;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 15px 40px;
-  border-radius: 100px;
-  display: inline-block;
+  padding: 1.5rem 4rem;
+  border-radius: 10rem;
   transition: all 0.2s; /* should be on the intital state */
+  position: relative;
+  animation: moveInBottom 2s ease-out;
+  font-size: 1.6rem;
 }
 
 .btn:hover {
   transform: translateY(
     -3px
   ); /* negative value means it will start from the down to the up direction*/
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
 .btn:active {
   transform: translateY(-1px); /* active state is when the button is clicked */
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 .btn-white {
   background-color: #fff;
   color: #777;
+}
+
+.btn::after {
+  content: ""; /* You must specify the content property in order for an after pseudo to show on the page */
+  display: inline-block;
+  height: 100%; /* i.e 100% of the size of the button itself for both height and width. Same dimension */
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.3s;
+}
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.btn-white::after {
+  background-color: #fff;
 }
