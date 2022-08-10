@@ -1,26 +1,50 @@
-/*
-COLORS:
-Grey ; #777;
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+    /* negative value means it will start from the left side to the right*/ }
+  80% {
+    transform: translateX(1rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
 
-*/
-/* 
-1. The best way to perform basic reset using universal selector 
-2. How to set project-wide font definitions
-3. How to clip parts of elements using clip-path*/
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem); }
+  80% {
+    transform: translateX(-1rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem); }
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
+
+/* Animations using keyframes and transform property*/
+/* The animation can be used anywhere after it is defined
+ */
 *,
 *::after,
 *::before {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
-  /* Good practise */ }
+  /* Good practice */ }
 
 html {
   font-size: 62.5%;
-  /* Good practise */ }
+  /* Good practice */ }
+
+body {
+  box-sizing: border-box;
+  /* Good practice */ }
 
 body {
   font-family: "Lato", sans-serif;
@@ -28,35 +52,7 @@ body {
   font-size: 1.6rem;
   line-height: 1.7;
   color: #777;
-  padding: 3rem;
-  box-sizing: border-box;
-  /* Good practise */ }
-
-.header {
-  height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
-  background-size: cover;
-  /*sets the size of the element's background image  */
-  background-position: top;
-  /* sets the initial position for each background image. */
-  /* To specify gradient, use the background image */
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  /* creates a clipping region that sets what part of an element should be shown */
-  position: relative; }
-  .header__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem; }
-  .header__logo {
-    height: 3.5rem; }
-  .header__text-box {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    /* background-color: rebeccapurple; */
-    transform: translate(-50%, -50%);
-    /* To center the text-box element relative to the header container */
-    text-align: center; }
+  padding: 3rem; }
 
 .heading-primary {
   color: #fff;
@@ -87,39 +83,60 @@ body {
     /* animation: moveInRight;
     animation-duration: 3s; */ }
 
-/* Animations using keyframes and transform property*/
-/* The animation can be used anywhere after it is defined
- */
-@keyframes moveInLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-10rem);
-    /* negative value means it will start from the left side to the right*/ }
-  80% {
-    transform: translateX(1rem); }
-  100% {
-    opacity: 1;
-    transform: translateX(0); } }
+.row {
+  max-width: 114rem;
+  background-color: #eee;
+  margin: 0 auto; }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
+  .row [class^="col-"] {
+    background-color: orangered;
+    float: left; }
+    .row [class^="col-"]:not(:last-child) {
+      margin-right: 6rem; }
+  .row .col-1-of-2 {
+    width: calc((100% - 6rem) / 2); }
+  .row .col-1-of-3 {
+    width: calc((100% - 12rem) / 3); }
+  .row .col-2-of-3 {
+    width: calc( ((100% - 12rem) / 3) * 2 + 6rem); }
+  .row .col-1-of-4 {
+    width: calc((100% - 18rem) / 4); }
+  .row .col-2-of-4 {
+    width: calc((100% - 6rem) / 2); }
+  .row .col-3-of-4 {
+    width: calc( ((100% - 18rem) / 4) * 3 + 12rem); }
 
-@keyframes moveInRight {
-  0% {
-    opacity: 0;
-    transform: translateX(10rem); }
-  80% {
-    transform: translateX(-1rem); }
-  100% {
-    opacity: 1;
-    transform: translateX(0); } }
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-size: cover;
+  /*sets the size of the element's background image  */
+  background-position: top;
+  /* sets the initial position for each background image. */
+  /* To specify gradient, use the background image */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /* creates a clipping region that sets what part of an element should be shown */
+  position: relative; }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /* background-color: rebeccapurple; */
+    transform: translate(-50%, -50%);
+    /* To center the text-box element relative to the header container */
+    text-align: center; }
 
-@keyframes moveInBottom {
-  0% {
-    opacity: 0;
-    transform: translateY(3rem); }
-  100% {
-    opacity: 1;
-    transform: translateY(0); } }
-
-/* Heading button */
 .btn:link, .btn:visited {
   display: inline-block;
   text-transform: uppercase;
@@ -167,3 +184,16 @@ body {
 .btn--animated {
   animation: moveInBottom 2s ease-out;
   animation-fill-mode: backwards; }
+
+/*
+COLORS:
+Grey ; #777;
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+/* 
+1. The best way to perform basic reset using universal selector 
+2. How to set project-wide font definitions
+3. How to clip parts of elements using clip-path*/

@@ -1,0 +1,15 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; /* Good practice */
+}
+
+html {
+  font-size: 62.5%; /* Good practice */
+}
+
+body {
+  box-sizing: border-box; /* Good practice */
+}
