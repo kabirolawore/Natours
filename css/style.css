@@ -83,6 +83,11 @@ body {
     /* animation: moveInRight;
     animation-duration: 3s; */ }
 
+.heading-secondary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700; }
+
 .row {
   max-width: 114rem;
   background-color: #eee;
@@ -184,6 +189,11 @@ body {
 .btn--animated {
   animation: moveInBottom 2s ease-out;
   animation-fill-mode: backwards; }
+
+.section-about {
+  background-color: #f7f7f7;
+  padding: 25rem 0;
+  margin-top: -20vh; }
 
 /*
 COLORS:
