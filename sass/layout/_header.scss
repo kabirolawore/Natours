@@ -6,9 +6,12 @@
       rgba($color-primary-dark, 0.8)
     ),
     url(../img/hero.jpg);
+
   background-size: cover; /*sets the size of the element's background image  */
   background-position: top; /* sets the initial position for each background image. */
   /* To specify gradient, use the background image */
+
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   clip-path: polygon(
     0 0,
     100% 0,
