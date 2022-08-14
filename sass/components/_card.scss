@@ -2,12 +2,12 @@
   perspective: 150rem; // Should always be on the parent elem
   -moz-perspective: 150rem;
   position: relative;
-  height: 50rem;
+  height: 52rem;
 
   &__side {
     // background-color: rebeccapurple;
 
-    height: 50rem;
+    height: 52rem;
     transition: all 0.8s ease;
     position: absolute;
     top: 0;
@@ -136,6 +136,26 @@
         rgba($color-tertiary-light, 0.85),
         rgba($color-tertiary-dark, 0.85)
       );
+    }
+  }
+
+  &__details {
+    //
+    padding: 3rem;
+    ul {
+      list-style: none;
+      width: 80%;
+      text-align: center;
+      margin: 0 auto;
+
+      li {
+        font-size: 1.5rem;
+        padding: 1rem;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid $color-grey-light-2;
+        }
+      }
     }
   }
 }
