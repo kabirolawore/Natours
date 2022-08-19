@@ -18,21 +18,30 @@
   &__shape {
     height: 15rem;
     width: 15rem;
-    // background-color: rebeccapurple;
     float: left;
+
     -webkit-shape-outside: circle(50% at 50% 50%);
     shape-outside: circle(
       50% at 50% 50%
     ); // the element must actually be floated in order for this to work. It also only works if the element has defined dimension(height & width) as in above
+
     -webkit-clip-path: circle(50% at 50% 50%);
     clip-path: circle(50% at 50% 50%);
+
     transform: translateX(-3rem) skewX(12deg);
-    //when using float, its best not to messw with margins. simply use transform: translateX() property
+    //when using float, its best not to mess with margins. simply use transform: translateX() property
+
     position: relative;
+    overflow: hidden; // fixes weird stuff when dealing with animations and transitions stuff
+    backface-visibility: hidden; // fixes weird stuff when dealing with animations and transitions stuff
   }
 
   &__img {
     height: 100%;
+    transform: translateX(-3.5rem) scale(1.4);
+    backface-visibility: hidden; // fixes weird stuff when dealing with animations and transitions stuff
+
+    transition: all 0.5s;
   }
 
   &__text {
@@ -43,10 +52,26 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 20%);
     color: $color-white;
     text-transform: uppercase;
-    text-align: center;
     font-size: 1.7rem;
+    text-align: center;
+
+    opacity: 0; //initial state
+    transition: all 0.5s;
+    backface-visibility: hidden; // fixes weird stuff when dealing with animations and transitions stuff
+  }
+
+  &:hover &__caption {
+    //  .story:hover .story__caption ==> meaning when you hover on the story, select the story__caption.
+
+    opacity: 1; // translated state
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover &__img {
+    transform: translateX(-3.5rem) scale(1);
+    filter: blur(3px) brightness(80%);
   }
 }
