@@ -1,0 +1,52 @@
+.story {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
+  background-color: $color-white;
+  border-radius: 3px;
+  padding: 6rem;
+  padding-left: 9rem;
+  font-size: $default-font-size;
+  transform: skewX(-12deg);
+
+  // & > * {
+  //   // & > *, means everything direct child element. ie story__shape & story__text
+  //   // In css, you cannot have two transform property on a single element, the value for the 2nd transform likely wont work.
+  //   transform: skewX(12deg); // won't work bcos of above
+  // }
+
+  &__shape {
+    height: 15rem;
+    width: 15rem;
+    // background-color: rebeccapurple;
+    float: left;
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(
+      50% at 50% 50%
+    ); // the element must actually be floated in order for this to work. It also only works if the element has defined dimension(height & width) as in above
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    transform: translateX(-3rem) skewX(12deg);
+    //when using float, its best not to messw with margins. simply use transform: translateX() property
+    position: relative;
+  }
+
+  &__img {
+    height: 100%;
+  }
+
+  &__text {
+    transform: skewX(12deg);
+  }
+
+  &__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $color-white;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.7rem;
+  }
+}
