@@ -14,6 +14,7 @@
     border-bottom: 3px solid transparent;
     width: 100%;
     display: block;
+    transition: all 0.3s;
 
     &:focus {
       outline: none;
@@ -36,6 +37,7 @@
     margin-left: 2rem;
     margin-top: 0.7rem;
     display: block;
+    transition: all 0.5s;
   }
 
   // + adjacent siblings selector. right next to the first element
@@ -44,6 +46,44 @@
 
   &__input:placeholder-shown + &__label {
     opacity: 0;
-    visibility: visible;
+    visibility: hidden;
+    transform: translateY(-4rem);
+  }
+
+  &__radio-group {
+    width: 45%;
+    display: inline-block;
+  }
+
+  &__radio-label {
+    font-size: $default-font-size;
+    cursor: pointer;
+    position: relative;
+    padding-left: 4.5rem;
+  }
+
+  &__radio-button {
+    height: 2.8rem;
+    width: 2.8rem;
+    border: 5px solid $color-primary;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: -0.4rem;
+
+    &::after {
+      content: "";
+      display: block;
+      height: 1.3rem;
+      width: 1.3rem;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: $color-primary;
+      opacity: 0;
+    }
   }
 }

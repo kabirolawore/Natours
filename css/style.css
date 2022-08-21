@@ -153,7 +153,8 @@ body {
   border: none;
   border-bottom: 3px solid transparent;
   width: 100%;
-  display: block; }
+  display: block;
+  transition: all 0.3s; }
   .form__input:focus {
     outline: none;
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
@@ -168,11 +169,45 @@ body {
   font-weight: 700;
   margin-left: 2rem;
   margin-top: 0.7rem;
-  display: block; }
+  display: block;
+  transition: all 0.5s; }
 
 .form__input:placeholder-shown + .form__label {
   opacity: 0;
-  visibility: visible; }
+  visibility: hidden;
+  transform: translateY(-4rem); }
+
+.form__radio-group {
+  width: 45%;
+  display: inline-block; }
+
+.form__radio-label {
+  font-size: 1.6rem;
+  cursor: pointer;
+  position: relative;
+  padding-left: 4.5rem; }
+
+.form__radio-button {
+  height: 2.8rem;
+  width: 2.8rem;
+  border: 5px solid #55c57a;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: -0.4rem; }
+  .form__radio-button::after {
+    content: "";
+    display: block;
+    height: 1.3rem;
+    width: 1.3rem;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #55c57a;
+    opacity: 0; }
 
 .btn:link, .btn:visited {
   display: inline-block;
