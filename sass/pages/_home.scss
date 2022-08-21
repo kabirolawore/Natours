@@ -56,5 +56,11 @@
 
   border-radius: 3px;
   box-shadow: 0 1.5rem 4rem rgba($color-black, $alpha: 0.2);
+
   height: 50rem;
+
+  &__form {
+    width: 60%;
+    padding: 6rem;
+  }
 }
