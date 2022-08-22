@@ -2,6 +2,7 @@
   background-color: $color-grey-dark-3;
   padding: 10rem 0;
   font-size: 1.4rem;
+  color: $color-grey-light-1;
 
   &__logo-box {
     text-align: center;
@@ -14,11 +15,11 @@
   }
 
   &__navigation {
-    border-top: 1px solid $color-grey-light-2;
+    border-top: 1px solid $color-grey-dark;
     padding-top: 2rem;
     display: inline-block;
 
-    // border: 1px solid $color-grey-light-2;
+    // border: 1px solid $color-grey-dark;
     // padding: 2rem;
     // display: inline-block;
   }
@@ -52,5 +53,13 @@
       box-shadow: 0 1rem 2rem rgba($color-black, 0.4);
       transform: rotate(5deg) scale(1.2);
     }
+  }
+
+  &__copyright {
+    border-top: 1px solid $color-grey-dark;
+    padding-top: 2rem;
+
+    width: 80%;
+    float: right;
   }
 }
