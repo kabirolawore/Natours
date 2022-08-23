@@ -6,16 +6,36 @@
   left: 0;
   background-color: rgba($color-black, 0.8);
   z-index: 9999;
+  transition: all 0.3s; //popup open animation
 
   // Unopened POP UP
   opacity: 0;
   visibility: hidden;
 
   &:target {
-    // Opened POP UP
-
+    // Opene POP UP
     opacity: 1;
     visibility: visible;
+  }
+
+  &__close {
+    // Close POP UP
+    &:link,
+    &:visited {
+      color: $color-grey-dark;
+      position: absolute;
+      top: 2.5rem;
+      right: 2.5rem;
+      font-size: 3rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      line-height: 1;
+      display: inline-block;
+    }
+
+    &:hover {
+      color: $color-primary;
+    }
   }
 
   &__content {
