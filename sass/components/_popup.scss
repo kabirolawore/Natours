@@ -30,6 +30,7 @@
     display: table-cell; //table properties
     width: 66.666667%;
     vertical-align: middle; //table properties
+    padding: 3rem 5rem;
   }
 
   &__img {
@@ -38,5 +39,20 @@
   }
 
   &__text {
+    font-size: 1.4rem;
+    margin-bottom: 4rem;
+
+    -moz-column-count: 2; // new CSS feature
+    -moz-column-gap: 4rem;
+    -moz-column-rule: 1px solid $color-grey-light-2;
+
+    column-count: 2; // new CSS feature
+    column-gap: 4rem;
+    column-rule: 1px solid $color-grey-light-2;
+
+    -moz-hyphens: auto;
+    -ms-hyphens: auto; // You should actually use a tool called autoprefixer. Do not do it by hand
+    -webkit-hyphens: auto;
+    hyphens: auto; // you must set your language in html doc to english in order for it to work
   }
 }
