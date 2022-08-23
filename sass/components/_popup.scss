@@ -12,32 +12,6 @@
   opacity: 0;
   visibility: hidden;
 
-  &:target {
-    // Opene POP UP
-    opacity: 1;
-    visibility: visible;
-  }
-
-  &__close {
-    // Close POP UP
-    &:link,
-    &:visited {
-      color: $color-grey-dark;
-      position: absolute;
-      top: 2.5rem;
-      right: 2.5rem;
-      font-size: 3rem;
-      text-decoration: none;
-      transition: all 0.2s;
-      line-height: 1;
-      display: inline-block;
-    }
-
-    &:hover {
-      color: $color-primary;
-    }
-  }
-
   &__content {
     // parent div
     @include absCenter;
@@ -50,6 +24,10 @@
     display: table; //table properties
 
     overflow: hidden; // hides the overlapping image edge
+
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.25);
+    transition: all 0.5s 0.2s;
   }
 
   &__left {
@@ -85,5 +63,37 @@
     -ms-hyphens: auto; // You should actually use a tool called autoprefixer. Do not do it by hand
     -webkit-hyphens: auto;
     hyphens: auto; // you must set your language in html doc to english in order for it to work
+  }
+
+  &:target {
+    // Opene POP UP
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &:target &__content {
+    // When the popup is the target, we apply the animation style to the child element which is the popup contents
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  &__close {
+    // Close POP UP
+    &:link,
+    &:visited {
+      color: $color-grey-dark;
+      position: absolute;
+      top: 2.5rem;
+      right: 2.5rem;
+      font-size: 3rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      line-height: 1;
+      display: inline-block;
+    }
+
+    &:hover {
+      color: $color-primary;
+    }
   }
 }
