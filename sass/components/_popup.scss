@@ -7,6 +7,17 @@
   background-color: rgba($color-black, 0.8);
   z-index: 9999;
 
+  // Unopened POP UP
+  opacity: 0;
+  visibility: hidden;
+
+  &:target {
+    // Opened POP UP
+
+    opacity: 1;
+    visibility: visible;
+  }
+
   &__content {
     // parent div
     @include absCenter;
