@@ -10,18 +10,20 @@ html {
   // this defines what 1rem is
   font-size: 62.5%; /* Good practice, 1rem is 10px, 10px/16px = 62.5% */
 
-  // @include respond(phone) {
-  //   font-size: 50%;
-  // }
-
   @include respond(tab-land) {
+    // width < 1200
     font-size: 56.25%; // 1 rem = 9px, 9/16 = 56.25%
   }
+  //large queries before the snaller ones
 
   @include respond(tab-port) {
     // width < 900
     font-size: 50%; // 1 rem = 8px, 8/16 = 50%
   }
+
+  // @include respond(phone) {
+  //   font-size: 50%;
+  // }
 
   @include respond(big-desktop) {
     // width < 600
@@ -31,4 +33,9 @@ html {
 
 body {
   box-sizing: border-box; /* Good practice */
+  padding: 3rem;
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
 }
