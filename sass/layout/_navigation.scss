@@ -37,7 +37,6 @@
     z-index: 1000;
     transition: transform 0.8s cubic-bezier(0.83, 0, 0.17, 1);
 
-    // transform: scale(80);
     @include respond(tab-port) {
       top: 3rem;
       right: 4.5rem;
