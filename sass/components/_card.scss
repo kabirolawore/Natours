@@ -6,6 +6,7 @@
   height: 52rem;
 
   &__side {
+    //
     // background-color: rebeccapurple;
 
     height: 52rem;
@@ -55,7 +56,15 @@
     }
   }
 
+  // &:hover &__side {
+  //   transform: rotate(0);
+  // }
+
   &:hover &__side--front {
+    transform: rotateY(-180deg);
+  }
+
+  &:hover &__side--back {
     transform: rotateY(0);
   }
 
